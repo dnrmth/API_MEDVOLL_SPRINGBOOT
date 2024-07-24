@@ -2,10 +2,7 @@ package med.voll.API.controller;
 
 import jakarta.validation.Valid;
 import med.voll.API.endereco.DadosEndereco;
-import med.voll.API.medico.DadosCadastroMedico;
-import med.voll.API.medico.DadosListagemMedico;
-import med.voll.API.medico.Medico;
-import med.voll.API.medico.MedicoRepository;
+import med.voll.API.medico.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -35,7 +32,8 @@ public class MedicoController {
 
     @PutMapping
     @Transactional
-    public void atualizar(@RequestBody @Valid DadosCadastroMedico dados){
-
+    public void atualizar(@RequestBody @Valid DadosAtualizacaoMedico dados){
+        var medico = repository.getReferenceById(dados.id());
+        medico.AtualizarInformacoes(dados);
     }
 }
