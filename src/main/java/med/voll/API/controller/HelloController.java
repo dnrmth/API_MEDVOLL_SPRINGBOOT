@@ -10,6 +10,6 @@ public class HelloController {
 
     @GetMapping
     public String HelloWorld(){
-        return "EU ODEIO JOVEM";
+        return "Vai tomar no cu de Python";
     }
 }
